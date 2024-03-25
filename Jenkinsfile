@@ -7,10 +7,10 @@ node {
         checkout scm
     }
 
-    stage('Sleep') {
-        {
-           sh 'sleep 300'
-        }
+    stage ("wait_prior_starting_smoke_testing") {
+        def time = 30
+        echo "Waiting 30 seconds for deployment to complete prior starting smoke testing"
+        sleep time.toInteger() // seconds
     }
     
     stage('Build image') {
