@@ -8,12 +8,8 @@ node {
     }
 
     stage('Sleep') {
-        steps {
-            script {
-                print('I am sleeping for a while')
-                sleep(30)    
-            }
-            
+        {
+           sh 'sleep 300'
         }
     }
     
