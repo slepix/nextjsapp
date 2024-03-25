@@ -7,16 +7,20 @@ node {
         checkout scm
     }
 
-    stage('Build image') {
-        /* This builds the actual image; synonymous to
-         * docker build on the command line */
+    stage('Sleep') {
         steps {
             script {
                 print('I am sleeping for a while')
                 sleep(30)    
             }
+            
         }
-        app = sudo docker.build("slepix/nextjsapp")
+    }
+    
+    stage('Build image') {
+        /* This builds the actual image; synonymous to
+         * docker build on the command line */
+       app = sudo docker.build("slepix/nextjsapp")
     }
 
     stage('Test image') {
