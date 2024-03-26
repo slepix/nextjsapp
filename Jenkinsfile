@@ -16,7 +16,7 @@ node {
     stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
-       app = sudo docker.build("slepix/nextjsapp")
+       app = sudo docker.buildx("slepix/nextjsapp")
     }
 
     stage('Test image') {
